@@ -212,7 +212,8 @@
     }
   }
 
-  &:disabled {
+  &:disabled,
+  &.mdc-button-disabled {
     @include feature-targeting.targets($feat-structure) {
       cursor: default;
       pointer-events: none;
