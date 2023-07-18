@@ -329,7 +329,8 @@ $light-theme: (
 /// @access private
 ///
 @mixin _disabled-icon-opacity($opacity) {
-  &:disabled {
+  &:disabled,
+  &.mdc-button-disabled {
     @include theme.property(opacity, $opacity);
   }
 }
@@ -366,7 +367,8 @@ $light-theme: (
 
   $disabled: state.get-disabled-state($color-map);
   @if $disabled {
-    &:disabled {
+    &:disabled,
+    &.mdc-button-disabled {
       @include ink-color_($disabled);
     }
   }
@@ -389,7 +391,8 @@ $light-theme: (
 /// @access private
 ///
 @mixin if-disabled_ {
-  &:disabled {
+  &:disabled,
+  &.mdc-button-disabled {
     @content;
   }
 }

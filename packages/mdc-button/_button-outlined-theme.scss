@@ -147,7 +147,7 @@ $light-theme: (
 ///     {default, hover, focused, pressed, disabled} as keys.
 ///
 @mixin outline-color($color-or-map, $query: feature-targeting.all()) {
-  &:not(:disabled) {
+  &:not(:disabled, .mdc-button-disabled) {
     @include _outline-color(
       state.get-default-state($color-or-map),
       $query: $query
@@ -177,7 +177,8 @@ $light-theme: (
     }
   }
 
-  &:disabled {
+  &:disabled,
+  &.mdc-button-disabled {
     @include _outline-color(
       state.get-disabled-state($color-or-map),
       $query: $query

@@ -254,7 +254,7 @@ $disabled-container-color: rgba(
 @mixin container-fill-color($color-or-map, $query: feature-targeting.all()) {
   // :not(:disabled) is used to support link styled as button
   // as link does not support :enabled style
-  &:not(:disabled) {
+  &:not(:disabled, .mdc-button-disabled) {
     @include _container-fill-color(
       state.get-default-state($color-or-map),
       $query: $query
@@ -282,7 +282,8 @@ $disabled-container-color: rgba(
     }
   }
 
-  &:disabled {
+  &:disabled,
+  &.mdc-button-disabled {
     @include _container-fill-color(
       state.get-disabled-state($color-or-map),
       $query: $query
@@ -312,7 +313,7 @@ $disabled-container-color: rgba(
 ///     {default, hover, focus, pressed, disabled} as keys.
 ///
 @mixin icon-color($color-or-map, $query: feature-targeting.all()) {
-  &:not(:disabled) {
+  &:not(:disabled, .mdc-button-disabled) {
     @include _icon-color(
       state.get-default-state($color-or-map),
       $query: $query
@@ -340,7 +341,8 @@ $disabled-container-color: rgba(
     }
   }
 
-  &:disabled {
+  &:disabled,
+  &.mdc-button-disabled {
     @include _icon-color(
       state.get-disabled-state($color-or-map),
       $query: $query
@@ -371,7 +373,7 @@ $disabled-container-color: rgba(
 ///     {default, hover, focus, pressed, disabled} as keys.
 ///
 @mixin ink-color($color-or-map, $query: feature-targeting.all()) {
-  &:not(:disabled) {
+  &:not(:disabled, .mdc-button-disabled) {
     @include _ink-color(state.get-default-state($color-or-map), $query: $query);
 
     &:hover {
@@ -390,7 +392,8 @@ $disabled-container-color: rgba(
     }
   }
 
-  &:disabled {
+  &:disabled,
+  &.mdc-button-disabled {
     @include _ink-color(
       state.get-disabled-state($color-or-map),
       $query: $query
@@ -739,7 +742,8 @@ $disabled-container-color: rgba(
 
     $disabled: state.get-disabled-state($elevation-map);
     @if $disabled != null {
-      &:disabled {
+      &:disabled,
+      &.mdc-button-disabled {
         @include elevation-theme.with-resolver(
           $elevation-resolver,
           $elevation: $disabled,

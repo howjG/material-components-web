@@ -191,7 +191,8 @@
       $ripple-target: icon-button-theme.$ripple-target
     );
 
-    &:disabled {
+    &:disabled,
+    &.mdc-button-disabled {
       @include ripple-theme.states-opacities(
         (
           hover: 0,
@@ -223,7 +224,8 @@
 /// @access private
 ///
 @mixin if-disabled_ {
-  &:disabled {
+  &:disabled,
+  &.mdc-button-disabled {
     @content;
   }
 }

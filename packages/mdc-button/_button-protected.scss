@@ -80,7 +80,8 @@
     @include elevation-theme.elevation(8, $query: $query);
   }
 
-  &:disabled {
+  &:disabled,
+  &.mdc-button-disabled {
     @include elevation-theme.elevation(0, $query: $query);
   }
 
